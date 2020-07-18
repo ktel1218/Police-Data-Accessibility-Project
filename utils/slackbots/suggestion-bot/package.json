@@ -4,7 +4,12 @@
   "description": "Slack bot to suggest which channels to join based on introductions.",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js"
+    "start": "node index.js",
+    "prod": "pm2 start index.js --name slack-intro-bot --max-memory-restart 200MB",
+    "eslint": "eslint .",
+    "eslint:fix": "eslint . --fix",
+    "prettier": "prettier --check '**/**.js'",
+    "prettier:fix": "prettier --check '**/**.js' --write"
   },
   "dependencies": {
     "axios": "^0.19.2",
@@ -19,10 +24,13 @@
   "keywords": [
     "node",
     "slack",
-    "bot",
-    "express"
+    "bot"
   ],
   "devDependencies": {
-    "eslint": "^7.4.0"
+    "babel-eslint": "^10.1.0",
+    "eslint": "^7.4.0",
+    "eslint-config-prettier": "^6.11.0",
+    "pm2": "^4.4.0",
+    "prettier": "^2.0.5"
   }
 }
